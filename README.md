@@ -1,4 +1,4 @@
-### Invillia Test
+### GR Git Test
 
 Primeiro baixe as dependências do projeto com o comando:
 
@@ -7,4 +7,3 @@ Primeiro baixe as dependências do projeto com o comando:
 Para rodar o projeto basta rodar o comando:
 
 #### `npm start` ou `yarn start`
-
