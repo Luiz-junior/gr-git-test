@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const ListContainer = styled.div`
-
   &&::after {
       content: "";
       height: 100vh;
@@ -14,11 +13,6 @@ export const ListContainer = styled.div`
       bottom: 0;
       display: ${props => props.display};
     }
-
-  .loading {
-    color: #ffcb05;
-    text-align: center;
-  }
 `
 
 export const SectionListPokemon = styled.section`
@@ -37,34 +31,39 @@ export const SectionSearch = styled.section`
     margin: 0 auto;
     padding: 0;
   }
+`
 
-  > h1 {
-    font-family: 'SF Pro Display';
-    font-weight: bold;
-    font-size: 32px;
-    color: #17171B;
-    margin: 0;
-  }
+export const Title = styled.h1`  
+  font-family: 'SF Pro Display';
+  font-weight: bold;
+  font-size: 32px;
+  color: #17171B;
+  margin: 0;
+`
 
-  > p {
-    font-family: 'SF Pro Display';
-    font-size: 16px;
-    line-height: 19px;
-    color: #747476;
-  }
+export const Description = styled.p`  
+  font-family: 'SF Pro Display';
+  font-size: 16px;
+  line-height: 19px;
+  color: #747476;
+`
 
-  .searchPokemon {
-    background: #F2F2F2;
-    border-radius: 10px;
-    height: 40px;
-    width: 100%;
-    padding-left: 10px;
-    border: none;
-    outline: none;
+export const InputSearchPokemon = styled.input`
+  background: #F2F2F2;
+  border-radius: 10px;
+  height: 40px;
+  width: 100%;
+  padding-left: 10px;
+  border: none;
+  outline: none;
 
-    font-family: 'SF Pro Display';
-    font-size: 14px;
-    line-height: 19px;
-    color: #747476;
-  }
+  font-family: 'SF Pro Display';
+  font-size: 14px;
+  line-height: 19px;
+  color: #747476;
+`
+
+export const Loading = styled.h4`
+  color: #aaa;
+  text-align: center;
 `

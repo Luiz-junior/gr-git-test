@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from 'axios'
 
 import api from '../../services/api';
-import { GET_POKEMON, GET_POKEMON_DETAILS, GET_DETAILS_INFO, SET_OFFSET, ERROR } from './types';
+import { GET_POKEMON, GET_POKEMON_DETAILS, SET_OFFSET, ERROR } from './types'
 
 export const getPokemon = (offset) => {
   return async dispatch => {
@@ -22,7 +22,7 @@ export const getPokemon = (offset) => {
 export const getPokemonDetails = (urlPokemon, idImage, pokeDetails) => {
   return async dispatch => {
     const res = await axios.get(urlPokemon);
-    
+
     idImage.push(res.data.id);
     pokeDetails.push(res.data);
 
@@ -31,12 +31,6 @@ export const getPokemonDetails = (urlPokemon, idImage, pokeDetails) => {
     } catch (error) {
       dispatch({ type: ERROR, errorStatus: res.data, loading: false })
     }
-  }
-}
-
-export const getDetailsInfo = (detailsInfo) => {
-  return dispatch => {
-    dispatch({ type: GET_DETAILS_INFO, detailsInfo })
   }
 }
 

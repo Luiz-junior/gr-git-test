@@ -40,11 +40,11 @@ export const CloseDialog = styled.section`
 export const DialogDetails = styled.div`
   display: flex;
   flex-direction: column;
+`
 
-  .base-stats-text {
-    color: #62B957;
-    padding-bottom: 10px;
-  }
+export const BaseStatsText = styled.strong`
+  color: #62B957;
+  padding-bottom: 10px;
 `
 
 export const IncreaseContainer = styled.div`
@@ -54,12 +54,12 @@ export const IncreaseContainer = styled.div`
   width: 75vw;
   padding: 5px 0;
   color: #333;
+`
 
-  .total-increase-text {
-    color: #555;
-    padding-left: 15px;
-    text-align: right;
-  }
+export const TotalIncreaseText = styled.span`
+  color: #555;
+  padding-left: 15px;
+  text-align: right;
 `
 
 export const ProgressBar = styled.div`

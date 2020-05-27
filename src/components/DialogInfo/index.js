@@ -6,7 +6,9 @@ import {
   IncreaseContainer,
   DialogDetails,
   ProgressBar,
-  PokeBar
+  PokeBar,
+  BaseStatsText,
+  TotalIncreaseText
 } from './styles'
 
 function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog }) {
@@ -16,9 +18,10 @@ function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog
   useEffect(() => {
     if (pokeDetails.length > 0) {
       setPokeStats([])
-      console.log('pokeDetails ', pokeDetails[0].stats.map(si => si))
+
       pokeDetails[0].stats.map((s, i) => {
         let { name } = s.stat
+
         if (name === 'hp' || name === 'attack' || name === 'defense' || name === 'speed')
           setPokeStats(oldState => [...oldState, { name: name, stat: s.base_stat }])
       })
@@ -35,12 +38,12 @@ function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog
 
       {pokeStats.length > 0 && (
         <DialogDetails>
-          <strong className="base-stats-text">Base Stats</strong>
+          <BaseStatsText>Base Stats</BaseStatsText>
           {pokeStats.map((pk, i) => {
             return (
               <IncreaseContainer key={i} >
                 <strong> {pk.name}: </strong>
-                <span className="total-increase-text">{pk.stat}</span>
+                <TotalIncreaseText>{pk.stat}</TotalIncreaseText>
                 <div style={{ width: '30%' }}>
                   <ProgressBar>
                     <PokeBar filled={pk.stat} />
