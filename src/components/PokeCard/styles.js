@@ -34,12 +34,20 @@ export const PokeCardContainer = styled.div`
       color: #FFFFFF;
     }
 
-    .pokeId {
+    .poke-id {
       font-family: 'SF Pro Display';
       font-weight: bold;
       font-size: 12px;
       line-height: 14px;
       color: rgba(23, 23, 27, 0.6);
+    }
+
+    .type-name {
+      font-family: 'SF Pro Display';
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      padding-right: 5px;
     }
   }
 

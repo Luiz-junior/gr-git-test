@@ -34,4 +34,14 @@ export const DialogInfoContainer = styled.div`
       left: 40%;
     }
   }
+
+  .increase-container {
+    width: 100vw;
+    padding: 5px 20px;
+    color: #333;
+
+    .total-increase {
+      color: #555;
+    }
+  }
 `

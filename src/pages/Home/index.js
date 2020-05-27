@@ -36,12 +36,14 @@ function Home() {
     if (pokemon.length > 0) {
       let pokeDetails = [];
       let idImage = [];
-      pokemon.map(poke => {
-        dispatch(getPokemonDetails(poke.url, idImage, pokeDetails))
-      });
+
+      if (pokeSelect < 1)
+        pokemon.map(poke => { dispatch(getPokemonDetails(poke.url, idImage, pokeDetails)) })
+      else
+        pokeSelect.map(poke => { dispatch(getPokemonDetails(poke.url, idImage, pokeDetails)) })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pokemon]);
+  }, [pokemon, pokeSelect]);
 
   const getHability = (detail, idPoke) => {
     let pokeDetails = detail.filter(d => d.id === idPoke);
@@ -88,30 +90,27 @@ function Home() {
 
       <SectionListPokemon>
         {pokeSelect.length < 1
-          ? pokemon.map((poke, i) => {
-            return (
-              <PokeCard
-                key={i}
-                poke={poke}
-                pokeId={pokeImageId[i]}
-                details={pokeDetails[i]}
-                index={i}
-                onOpenDialog={onOpenDialog}
-              />
-            )
-          })
-          : pokeSelect.map((poke, i) => {
-            return (
-              <PokeCard
-                key={i}
-                poke={poke}
-                pokeId={pokeImageId[i]}
-                details={pokeDetails[i]}
-                index={i}
-                onOpenDialog={onOpenDialog}
-              />
-            )
-          })
+          ? pokemon.map((poke, i) => (
+            <PokeCard
+              key={i}
+              poke={poke}
+              pokeId={pokeImageId[i]}
+              details={pokeDetails[i]}
+              index={i}
+              onOpenDialog={onOpenDialog}
+            />
+          )
+          )
+          : pokeSelect.map((poke, i) => (
+            <PokeCard
+              key={i}
+              poke={poke}
+              pokeId={pokeImageId[i]}
+              details={pokeDetails[i]}
+              index={i}
+              onOpenDialog={onOpenDialog}
+            />
+          ))
         }
       </SectionListPokemon>
       <Pagination />

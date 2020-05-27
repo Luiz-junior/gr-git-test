@@ -23,16 +23,14 @@ function PokeCard({ poke, pokeId, onOpenDialog, index, details }) {
     >
       {/* {console.log('detailsInfo: ', details && details.types.sort((a, b) => a - b))} */}
 
-
       <div className="poke-card-inner" id={`poke-card-inner${index}`}>
         <div className="poke-card-front">
           <div className="card-info">
-            <span className="pokeId">#00{pokeId}</span>
+            <span className="poke-id">#00{pokeId}</span>
             <strong>{poke.name}</strong>
             <div className="types">
-              {/* <span>{details && details.types[0].type.name}</span> */}
               {details && details.types.map((t, i) => {
-                return <span key={i}>{t.type.name}</span>
+                return <span key={i} className="type-name">{t.type.name}</span>
               })}
             </div>
           </div>
