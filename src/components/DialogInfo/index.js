@@ -37,7 +37,6 @@ function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog
       <CloseDialog onClick={() => onCloseDialog()}>
         <span className="close-dialog" style={{ transition: 'opacity .2s ease-in-out', opacity }}></span>
       </CloseDialog>
-      {console.log('pokeDetails ', pokeDetails)}
 
       {pokeStats.length > 0 && (
         <DialogDetails>
