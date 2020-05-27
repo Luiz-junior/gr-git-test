@@ -3,20 +3,27 @@
   justify-content: center;
   background: #fff;
 
-  .btn-prev, .btn-next {
+  @media (min-width: 768px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .btn-prev,
+  .btn-next {
     background: transparent;
     height: 40px;
     width: 50px;
     border: none;
     color: #333;
     outline: none;
-    transition: ease-in .2s;
+    transition: ease-in 0.2s;
 
     &:active {
-      background-color: #FFCB05;
+      background-color: #ffcb05;
       color: white;
-      border: 1px solid #FFCB05;
+      border: 1px solid #ffcb05;
     }
   }
-
 }

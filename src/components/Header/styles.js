@@ -6,6 +6,12 @@ export const SectionHeader = styled.div`
   padding: 20px 0px;
   padding-right: 5px;
 
+  @media (min-width: 1030px) {
+    width: 88vw;
+    margin: 0 auto;
+    padding-right: 0;
+  }
+
   > img {
     height: 18px;
     width: 20px;

@@ -31,6 +31,12 @@ export const SectionListPokemon = styled.section`
 `
 export const SectionSearch = styled.section`
   padding: 0px 20px;
+  
+  @media (min-width: 1030px) {
+    width: 86vw;
+    margin: 0 auto;
+    padding: 0;
+  }
 
   > h1 {
     font-family: 'SF Pro Display';

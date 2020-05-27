@@ -20,28 +20,55 @@ export const DialogInfoContainer = styled.div`
     font-size: 30px;
     font-weight: 700px;
   }
+`
 
-  .section-close-dialog {
-    position: relative;
+export const CloseDialog = styled.section`
+  position: relative;
 
-    .close-dialog {
-      height: 5px;
-      width: 55px;
-      border-radius: 5px;
-      position: fixed;
-      bottom: 203px;
-      background: #fff;
-      left: 40%;
-    }
+  .close-dialog {
+    height: 5px;
+    width: 55px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 203px;
+    background: #fff;
+    left: 40%;
   }
+`
+export const DialogDetails = styled.div`
+  display: flex;
+  flex-direction: column;
 
-  .increase-container {
-    width: 100vw;
-    padding: 5px 20px;
-    color: #333;
-
-    .total-increase {
-      color: #555;
-    }
+  .base-stats-text {
+    color: #62B957;
+    padding-bottom: 10px;
   }
+`
+
+export const IncreaseContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 75vw;
+  padding: 5px 0;
+  color: #333;
+
+  .total-increase-text {
+    color: #555;
+    padding-left: 15px;
+    text-align: right;
+  }
+`
+
+export const ProgressBar = styled.div`
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+`
+
+export const PokeBar = styled.div`
+  width: ${props => props.filled}%;
+  height: 5px;
+  background-color: #8BBE8A;
 `
