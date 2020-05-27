@@ -32,7 +32,9 @@ export const CloseDialog = styled.section`
     position: fixed;
     bottom: 203px;
     background: #fff;
-    left: 40%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
   }
 `
 export const DialogDetails = styled.div`

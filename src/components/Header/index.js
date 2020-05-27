@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import React from 'react'
 
 import filter1 from '../../assets/img/filter-1.svg'
 import filter2 from '../../assets/img/filter-2.svg'
@@ -11,12 +10,12 @@ function Header() {
   return (
     <div className="container">
       <SectionHeader>
-        <img src={filter1} alt="" />
-        <img src={filter2} alt="" />
-        <img src={filter3} alt="" />
+        <img src={filter1} alt="filter" />
+        <img src={filter2} alt="filter" />
+        <img src={filter3} alt="filter" />
       </SectionHeader>
     </div>
   )
 }
 
-export default Header;
+export default Header

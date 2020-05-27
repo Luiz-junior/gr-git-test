@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './styles.scss';
+import { ContainerPagination, PaginationContent, PrevBtn, NextBtn } from './styles';
 import { setOffset } from '../../store/action/pokemonAction';
 
 function Pagination() {
   const dispatch = useDispatch();
+
+  const [disabled, setDisabled] = useState(false)
+  const [color, setColor] = useState('#333')
 
   const { offset } = useSelector(state => ({
     offset: state.pokemonReducer.offset
@@ -13,24 +16,31 @@ function Pagination() {
 
   useEffect(() => {
     if (offset === 0) {
-      document.getElementById('btn-prev').disabled = true;
-      document.getElementById('btn-prev').style.color = '#999';
+      setDisabled(true)
+      setColor('#999')
     } else {
-      document.getElementById('btn-prev').disabled = false;
-      document.getElementById('btn-prev').style.color = '#333';
+      setDisabled(false)
+      setColor('#333')
     }
 
-  }, [offset]);
+  }, [offset, setDisabled]);
 
   const onChangePage = (newOffSet) => dispatch(setOffset(newOffSet));
 
   return (
-    <div className="container-pagination">
-      <div className="pagination">
-        <button onClick={() => onChangePage(offset - 8)} className="btn-prev" id="btn-prev">❮</button>
-        <button onClick={() => onChangePage(offset + 8)} className="btn-next">❯</button>
-      </div>
-    </div>
+    <ContainerPagination>
+      <PaginationContent>
+        <PrevBtn
+          onClick={() => onChangePage(offset - 8)}
+          id="btn-prev"
+          disabled={disabled}
+          style={{ color }}
+        > ❮
+        </PrevBtn>
+
+        <NextBtn onClick={() => onChangePage(offset + 8)}> ❯ </NextBtn>
+      </PaginationContent>
+    </ContainerPagination>
   )
 }
 

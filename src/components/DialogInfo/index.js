@@ -8,29 +8,19 @@ import {
   ProgressBar,
   PokeBar
 } from './styles'
-import axios from 'axios'
 
 function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog }) {
 
-  let [pokeInfo, setPokeInfo] = useState([])
+  let [pokeStats, setPokeStats] = useState([])
 
   useEffect(() => {
     if (pokeDetails.length > 0) {
-      setPokeInfo([])
-
+      setPokeStats([])
+      console.log('pokeDetails ', pokeDetails[0].stats.map(si => si))
       pokeDetails[0].stats.map((s, i) => {
-        let statName = s.stat.name
-        if (statName === 'hp' || statName === 'attack' || statName === 'defense' || statName === 'speed') {
-          axios.get(s.stat.url)
-            .then(res => {
-              setPokeInfo(oldState => [...oldState, res.data])
-              /* if (pokeInfo.length < 1)
-                setPokeInfo(oldState => [...oldState, res.data])
-              else
-                setPokeInfo(res.data) */
-            })
-            .catch(err => console.log(err))
-        }
+        let { name } = s.stat
+        if (name === 'hp' || name === 'attack' || name === 'defense' || name === 'speed')
+          setPokeStats(oldState => [...oldState, { name: name, stat: s.base_stat }])
       })
     }
   }, [pokeDetails])
@@ -43,20 +33,17 @@ function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog
         <span className="close-dialog" style={{ transition: 'opacity .2s ease-in-out', opacity }}></span>
       </CloseDialog>
 
-      {pokeInfo.length > 0 && (
+      {pokeStats.length > 0 && (
         <DialogDetails>
           <strong className="base-stats-text">Base Stats</strong>
-
-          {pokeInfo.map((p, i) => {
-            let totalIncrease = p.affecting_moves.increase.reduce((prev, cur) => prev + cur.change, 0)
+          {pokeStats.map((pk, i) => {
             return (
               <IncreaseContainer key={i} >
-                <strong> {p.name}: </strong>
-                <span className="total-increase-text">{totalIncrease}</span>
-
+                <strong> {pk.name}: </strong>
+                <span className="total-increase-text">{pk.stat}</span>
                 <div style={{ width: '30%' }}>
                   <ProgressBar>
-                    <PokeBar filled={totalIncrease} />
+                    <PokeBar filled={pk.stat} />
                   </ProgressBar>
                 </div>
               </IncreaseContainer>
@@ -64,7 +51,6 @@ function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog
           })}
         </DialogDetails>
       )}
-
     </DialogInfoContainer>
   )
 }
