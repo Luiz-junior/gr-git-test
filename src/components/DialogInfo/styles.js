@@ -74,3 +74,17 @@ export const PokeBar = styled.div`
   height: 5px;
   background-color: #8BBE8A;
 `
+
+export const SectionAbilities = styled.div`
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+`
+
+export const AbilityName = styled.span`
+  background: #8BBE8A;
+  padding: 0 5px;
+  border-radius: 5px;
+  color: #fff;
+  margin: 0 5px;
+`

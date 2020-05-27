@@ -8,7 +8,9 @@ import {
   ProgressBar,
   PokeBar,
   BaseStatsText,
-  TotalIncreaseText
+  TotalIncreaseText,
+  SectionAbilities,
+  AbilityName
 } from './styles'
 
 function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog }) {
@@ -35,6 +37,7 @@ function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog
       <CloseDialog onClick={() => onCloseDialog()}>
         <span className="close-dialog" style={{ transition: 'opacity .2s ease-in-out', opacity }}></span>
       </CloseDialog>
+      {console.log('pokeDetails ', pokeDetails)}
 
       {pokeStats.length > 0 && (
         <DialogDetails>
@@ -52,6 +55,13 @@ function DialogInfo({ pokeDetails, transition, maxHeight, opacity, onCloseDialog
               </IncreaseContainer>
             )
           })}
+
+          <SectionAbilities>
+            <strong>Abilities: </strong>
+            <div>
+              {pokeDetails[0].abilities.map((a, i) => <AbilityName key={i}>{a.ability.name}</AbilityName>)}
+            </div>
+          </SectionAbilities>
         </DialogDetails>
       )}
     </DialogInfoContainer>
